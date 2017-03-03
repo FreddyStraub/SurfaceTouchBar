@@ -47,9 +47,15 @@ namespace SurfaceTouchBar
             b1.Click += new EventHandler(this.b1_Click);
         }
 
+       
 
         private void b1_Click(Object sender, EventArgs e)
         {
+
+            WindowHelper.BringProcessToFront(currentProcess);
+            SendKeys.Send("HI There!");
+            SendKeys.SendWait("^s");
+
 
 
         }
@@ -109,6 +115,25 @@ namespace SurfaceTouchBar
             b8.Location = new Point(0, (Height / 8) * 7);
             Controls.Add(b8);
         }
+
+
+        Process currentProcess; 
+        private void processTimer_Tick(object sender, EventArgs e)
+        {
+
+            Process sftb = Process.GetCurrentProcess();
+            Process cur = WindowHelper.getCurrentProcess();
+
+            if(sftb.MainWindowTitle != cur.MainWindowTitle)
+            {
+               currentProcess = cur;
+                
+            }
+
+
+        }
+
+
 
     }
 }
