@@ -59,6 +59,14 @@ namespace SurfaceTouchBar
         /// </summary>
         private void loadSettings()
         {
+
+            if(!System.IO.File.Exists(Application.StartupPath + "\\Settings.wolf"))
+            {
+                Settings newStandartSettings = new Settings();
+                newStandartSettings.setStandartValues();
+                newStandartSettings.save();
+            }
+
             settings = settings.load();
 
             b1.Text = settings.Buttons[0].name;
@@ -95,103 +103,233 @@ namespace SurfaceTouchBar
 
             if(e.Button != MouseButtons.Right)
             {
-                WindowHelper.BringProcessToFront(currentProcess);
+                if(currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
 
-                Settings.ButtonSetting b1S = settings.Buttons[0];
+                    Settings.ButtonSetting b1S = settings.Buttons[0];
 
-                string keystring = generateSendKeysString(b1S.hotkey, b1S.strg, b1S.alt, b1S.shift);
+                    SendKeys.Send(generateSendKeysString(b1S.hotkey, b1S.strg, b1S.alt, b1S.shift));
 
-                SendKeys.Send(keystring);
-
-
-            }else
-            {
-
-                Settings.ButtonSetting oldb1Settings = settings.Buttons[0];
-
-                EditButton Edit_b1 = new EditButton("Button 1", oldb1Settings.name, oldb1Settings.hotkey, oldb1Settings.strg, oldb1Settings.alt, oldb1Settings.shift);
-                Edit_b1.ShowDialog();
-
-                Settings.ButtonSetting newb1Settings = new Settings.ButtonSetting();
-
-                newb1Settings.name = Edit_b1.tbName.Text;
-
-                newb1Settings.hotkey = (Keys)Enum.Parse(typeof(Keys), Edit_b1.bHotkey.Text);
-                newb1Settings.alt = Edit_b1.checkAlt.Checked;
-                newb1Settings.strg = Edit_b1.checkStrg.Checked;
-                newb1Settings.shift = Edit_b1.checkShift.Checked;
-
-                settings.Buttons[0] = newb1Settings;
-
-                settings.save();
+                }
 
             }
+            else
+            {
 
+                EditButtonSettings(0);
 
+            }
 
 
         }
         private void b2_Click(Object sender, MouseEventArgs e)
         {
 
- 
 
-            WindowHelper.BringProcessToFront(currentProcess);
-            SendKeys.Send("b");
+            if (e.Button != MouseButtons.Right)
+            {
+                if (currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
 
+                    Settings.ButtonSetting b2S = settings.Buttons[1];
 
+                    SendKeys.Send(generateSendKeysString(b2S.hotkey, b2S.strg, b2S.alt, b2S.shift));
+
+                }
+
+            }
+            else
+            {
+
+                EditButtonSettings(1);
+
+            }
         }
         private void b3_Click(Object sender, MouseEventArgs e)
         {
 
-            //WindowHelper.BringProcessToFront(currentProcess);
-            //SendKeys.Send("HI There!");
+            if (e.Button != MouseButtons.Right)
+            {
+                if (currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
 
+                    Settings.ButtonSetting b3S = settings.Buttons[2];
 
+                    SendKeys.Send(generateSendKeysString(b3S.hotkey, b3S.strg, b3S.alt, b3S.shift));
+
+                }
+
+            }
+            else
+            {
+
+                EditButtonSettings(2);
+
+            }
         }
         private void b4_Click(Object sender, MouseEventArgs e)
         {
 
-            WindowHelper.BringProcessToFront(currentProcess);
-            SendKeys.Send("HI There!");
+            if (e.Button != MouseButtons.Right)
+            {
+                if (currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
 
+                    Settings.ButtonSetting b4S = settings.Buttons[3];
 
+                    SendKeys.Send(generateSendKeysString(b4S.hotkey, b4S.strg, b4S.alt, b4S.shift));
+
+                }
+
+            }
+            else
+            {
+
+                EditButtonSettings(3);
+
+            }
 
 
         }
         private void b5_Click(Object sender, MouseEventArgs e)
         {
 
-            WindowHelper.BringProcessToFront(currentProcess);
-            SendKeys.Send("HI There!");
 
+            if (e.Button != MouseButtons.Right)
+            {
+                if (currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
+
+                    Settings.ButtonSetting b5S = settings.Buttons[4];
+
+                    SendKeys.Send(generateSendKeysString(b5S.hotkey, b5S.strg, b5S.alt, b5S.shift));
+
+                }
+
+            }
+            else
+            {
+
+                EditButtonSettings(4);
+
+            }
 
         }
         private void b6_Click(Object sender, MouseEventArgs e)
         {
 
-            WindowHelper.BringProcessToFront(currentProcess);
-            SendKeys.Send("HI There!");
 
+            if (e.Button != MouseButtons.Right)
+            {
+                if (currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
+
+                    Settings.ButtonSetting b6S = settings.Buttons[5];
+
+                    SendKeys.Send(generateSendKeysString(b6S.hotkey, b6S.strg, b6S.alt, b6S.shift));
+
+                }
+
+            }
+            else
+            {
+
+                EditButtonSettings(5);
+
+            }
 
         }
         private void b7_Click(Object sender, MouseEventArgs e)
         {
 
-            WindowHelper.BringProcessToFront(currentProcess);
-            SendKeys.Send("HI There!");
+            if (e.Button != MouseButtons.Right)
+            {
+                if (currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
 
+                    Settings.ButtonSetting b7S = settings.Buttons[6];
+
+                    SendKeys.Send(generateSendKeysString(b7S.hotkey, b7S.strg, b7S.alt, b7S.shift));
+
+                }
+
+            }
+            else
+            {
+
+                EditButtonSettings(6);
+
+            }
 
         }
         private void b8_Click(Object sender, MouseEventArgs e)
         {
 
-            WindowHelper.BringProcessToFront(currentProcess);
-            SendKeys.Send("HI There!");
 
+            if (e.Button != MouseButtons.Right)
+            {
+                if (currentProcess != null)
+                {
+                    WindowHelper.BringProcessToFront(currentProcess);
+
+                    Settings.ButtonSetting b8S = settings.Buttons[7];
+
+                    SendKeys.Send(generateSendKeysString(b8S.hotkey, b8S.strg, b8S.alt, b8S.shift));
+
+                }
+
+            }
+            else
+            {
+
+                EditButtonSettings(7);
+
+            }
 
         }
 
+        /// <summary>
+        /// Ermöglicht das editieren des angegebenen Buttons
+        /// </summary>
+        /// <param name="buttonIndex">index des Buttons in settings.Buttons</param>
+        private void EditButtonSettings(int buttonIndex)
+        {
+            Settings.ButtonSetting oldButtonSettings = settings.Buttons[buttonIndex];
+
+            EditButton EditButton = new EditButton("Button " + (buttonIndex + 1), oldButtonSettings.name, oldButtonSettings.hotkey, oldButtonSettings.strg, oldButtonSettings.alt, oldButtonSettings.shift);
+            EditButton.ShowDialog();
+
+            Settings.ButtonSetting newButtonSettings = new Settings.ButtonSetting();
+
+            newButtonSettings.name = EditButton.tbName.Text;
+
+            newButtonSettings.hotkey = (Keys)Enum.Parse(typeof(Keys), EditButton.bHotkey.Text);
+            newButtonSettings.alt = EditButton.checkAlt.Checked;
+            newButtonSettings.strg = EditButton.checkStrg.Checked;
+            newButtonSettings.shift = EditButton.checkShift.Checked;
+
+            settings.Buttons[buttonIndex] = newButtonSettings;
+
+            settings.save();
+
+            loadSettings();
+        }
+
+        /// <summary>
+        /// Generiert aus Parametern einen SendKeys.Send() -  String.
+        /// </summary>
+        /// <param name="hotkey">Keysobjekt mit hotkey</param>
+        /// <param name="strg">Soll Steuerung gedrückt werden.</param>
+        /// <param name="alt">Soll Alt gedrückt werden.</param>
+        /// <param name="shift">Soll Shift gedrückt werden.</param>
+        /// <returns>String der in Sendkeys.Send() verwendet werden kann.</returns>
         private string generateSendKeysString(Keys hotkey, bool strg, bool alt, bool shift)
         {
             string keystring = "";
