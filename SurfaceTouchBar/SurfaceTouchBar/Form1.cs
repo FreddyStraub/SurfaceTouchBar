@@ -303,7 +303,7 @@ namespace SurfaceTouchBar
         {
             Settings.ButtonSetting oldButtonSettings = settings.Buttons[buttonIndex];
 
-            EditButton EditButton = new EditButton("Button " + (buttonIndex + 1), oldButtonSettings.name, oldButtonSettings.hotkey, oldButtonSettings.strg, oldButtonSettings.alt, oldButtonSettings.shift);
+            EditButton EditButton = new EditButton(oldButtonSettings, "Button " + (buttonIndex + 1));
             EditButton.ShowDialog();
 
             Settings.ButtonSetting newButtonSettings = new Settings.ButtonSetting();

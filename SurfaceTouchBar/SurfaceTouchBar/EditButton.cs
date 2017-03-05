@@ -12,28 +12,20 @@ namespace SurfaceTouchBar
 {
     public partial class EditButton : Form
     {
-        /// <summary>
-        /// Erstellt neue EditForm
-        /// </summary>
-        /// <param name="settingsstrnig">String der im Titel des Fensters angezeigt wird.</param>
-        /// <param name="name">Name der im Button angezeigt wird.</param>
-        /// <param name="hotkey">Hotkey der gesendet wird.</param>
-        /// <param name="strg">Gibt an ob Steuerung gedrückt wird</param>
-        /// <param name="alt">Gibt an ob Alt gedrückt wird</param>
-        /// <param name="shift">Gibt an ob Shift gedrückt wird</param>
-        public EditButton(string settingsstrnig, string name, Keys hotkey, bool strg, bool alt, bool shift)
+        
+        public EditButton(Settings.ButtonSetting buttonSettings, string settingsstring)
         {
             InitializeComponent();
 
-            tbName.Text = name;
+            tbName.Text = buttonSettings.name;
 
-            checkStrg.Checked = strg;
-            checkAlt.Checked = alt;
-            checkShift.Checked = shift;
+            checkStrg.Checked = buttonSettings.strg;
+            checkAlt.Checked = buttonSettings.alt;
+            checkShift.Checked = buttonSettings.shift;
 
-            bHotkey.Text = hotkey.ToString();
+            bHotkey.Text = buttonSettings.hotkey.ToString();
 
-            lbButtonSettings.Text += " " + settingsstrnig;
+            lbButtonSettings.Text += " " + settingsstring;
         }
 
         #region Move Form
