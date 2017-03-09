@@ -28,6 +28,8 @@ namespace SurfaceTouchBar
 
         Settings settings = new Settings();
 
+        public Profile selectedProfile;
+
         Button b1 = new Button();
         Button b2 = new Button();
         Button b3 = new Button();
@@ -37,6 +39,8 @@ namespace SurfaceTouchBar
         Button b7 = new Button();
         Button b8 = new Button();
 
+        Button bEinstellungen = new Button();
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -44,12 +48,12 @@ namespace SurfaceTouchBar
             screens = Screen.AllScreens;
             currentScreen = Screen.FromControl(this);
             StartPosition = FormStartPosition.Manual;
-            Height = Screen.PrimaryScreen.Bounds.Height  - calculateTaskbarHeight();
+            Height = Screen.PrimaryScreen.Bounds.Height  - CalculateTaskbarHeight();
 
-            displayButtons();
-            initializeButtonEvent();
+            DisplayButtons();
+            InitializeButtonEvent();
 
-            loadSettings();
+            LoadSettings();
 
 
         }
@@ -57,32 +61,52 @@ namespace SurfaceTouchBar
         /// <summary>
         /// Lädt die Settings und überträgt Daten an Form.
         /// </summary>
-        private void loadSettings()
+        private void LoadSettings()
         {
 
             if(!System.IO.File.Exists(Application.StartupPath + "\\Settings.wolf"))
             {
                 Settings newStandartSettings = new Settings();
-                newStandartSettings.setStandartValues();
-                newStandartSettings.save();
+                newStandartSettings.SetStandartValues();
+                newStandartSettings.Save();
             }
 
-            settings = settings.load();
 
-            b1.Text = settings.Buttons[0].name;
-            b2.Text = settings.Buttons[1].name;
-            b3.Text = settings.Buttons[2].name;
-            b4.Text = settings.Buttons[3].name;
-            b5.Text = settings.Buttons[4].name;
-            b6.Text = settings.Buttons[5].name;
-            b7.Text = settings.Buttons[6].name;
-            b8.Text = settings.Buttons[7].name;
+            try
+            {
+                settings = settings.Load();
 
+            }
+            catch
+            {
 
+                if(System.IO.File.Exists(Application.StartupPath + "\\Settings.wolf"))
+                {
+                    System.IO.File.Delete(Application.StartupPath + "\\Settings.wolf");
+                }
+
+                Settings newStandartSettings = new Settings();
+                newStandartSettings.SetStandartValues();
+                newStandartSettings.Save();
+
+                LoadSettings();
+
+            }
+
+            selectedProfile = settings.Profiles[0];
+
+            b1.Text = selectedProfile.Buttons[0].name;
+            b2.Text = selectedProfile.Buttons[1].name;
+            b3.Text = selectedProfile.Buttons[2].name;
+            b4.Text = selectedProfile.Buttons[3].name;
+            b5.Text = selectedProfile.Buttons[4].name;
+            b6.Text = selectedProfile.Buttons[5].name;
+            b7.Text = selectedProfile.Buttons[6].name;
+            b8.Text = selectedProfile.Buttons[7].name;
+            
         }
 
-
-        private void processTimer_Tick(object sender, EventArgs e)
+        private void ProcessTimer_Tick(object sender, EventArgs e)
         {
 
             Process sftb = Process.GetCurrentProcess();
@@ -97,8 +121,7 @@ namespace SurfaceTouchBar
 
         }
 
-
-        private void b1_Click(Object sender, MouseEventArgs e)
+        private void B1_Click(Object sender, MouseEventArgs e)
         {
 
             if(e.Button != MouseButtons.Right)
@@ -107,9 +130,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b1S = settings.Buttons[0];
+                    ButtonSetting b1S = selectedProfile.Buttons[0];
 
-                    SendKeys.Send(generateSendKeysString(b1S.hotkey, b1S.strg, b1S.alt, b1S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b1S.hotkey, b1S.strg, b1S.alt, b1S.shift));
 
                 }
 
@@ -123,7 +146,7 @@ namespace SurfaceTouchBar
 
 
         }
-        private void b2_Click(Object sender, MouseEventArgs e)
+        private void B2_Click(Object sender, MouseEventArgs e)
         {
 
 
@@ -133,9 +156,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b2S = settings.Buttons[1];
+                    ButtonSetting b2S = selectedProfile.Buttons[1];
 
-                    SendKeys.Send(generateSendKeysString(b2S.hotkey, b2S.strg, b2S.alt, b2S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b2S.hotkey, b2S.strg, b2S.alt, b2S.shift));
 
                 }
 
@@ -147,7 +170,7 @@ namespace SurfaceTouchBar
 
             }
         }
-        private void b3_Click(Object sender, MouseEventArgs e)
+        private void B3_Click(Object sender, MouseEventArgs e)
         {
 
             if (e.Button != MouseButtons.Right)
@@ -156,9 +179,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b3S = settings.Buttons[2];
+                    ButtonSetting b3S = selectedProfile.Buttons[2];
 
-                    SendKeys.Send(generateSendKeysString(b3S.hotkey, b3S.strg, b3S.alt, b3S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b3S.hotkey, b3S.strg, b3S.alt, b3S.shift));
 
                 }
 
@@ -170,7 +193,7 @@ namespace SurfaceTouchBar
 
             }
         }
-        private void b4_Click(Object sender, MouseEventArgs e)
+        private void B4_Click(Object sender, MouseEventArgs e)
         {
 
             if (e.Button != MouseButtons.Right)
@@ -179,9 +202,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b4S = settings.Buttons[3];
+                    ButtonSetting b4S = selectedProfile.Buttons[3];
 
-                    SendKeys.Send(generateSendKeysString(b4S.hotkey, b4S.strg, b4S.alt, b4S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b4S.hotkey, b4S.strg, b4S.alt, b4S.shift));
 
                 }
 
@@ -195,7 +218,7 @@ namespace SurfaceTouchBar
 
 
         }
-        private void b5_Click(Object sender, MouseEventArgs e)
+        private void B5_Click(Object sender, MouseEventArgs e)
         {
 
 
@@ -205,9 +228,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b5S = settings.Buttons[4];
+                    ButtonSetting b5S = selectedProfile.Buttons[4];
 
-                    SendKeys.Send(generateSendKeysString(b5S.hotkey, b5S.strg, b5S.alt, b5S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b5S.hotkey, b5S.strg, b5S.alt, b5S.shift));
 
                 }
 
@@ -220,7 +243,7 @@ namespace SurfaceTouchBar
             }
 
         }
-        private void b6_Click(Object sender, MouseEventArgs e)
+        private void B6_Click(Object sender, MouseEventArgs e)
         {
 
 
@@ -230,9 +253,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b6S = settings.Buttons[5];
+                    ButtonSetting b6S = selectedProfile.Buttons[5];
 
-                    SendKeys.Send(generateSendKeysString(b6S.hotkey, b6S.strg, b6S.alt, b6S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b6S.hotkey, b6S.strg, b6S.alt, b6S.shift));
 
                 }
 
@@ -245,7 +268,7 @@ namespace SurfaceTouchBar
             }
 
         }
-        private void b7_Click(Object sender, MouseEventArgs e)
+        private void B7_Click(Object sender, MouseEventArgs e)
         {
 
             if (e.Button != MouseButtons.Right)
@@ -254,9 +277,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b7S = settings.Buttons[6];
+                    ButtonSetting b7S = selectedProfile.Buttons[6];
 
-                    SendKeys.Send(generateSendKeysString(b7S.hotkey, b7S.strg, b7S.alt, b7S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b7S.hotkey, b7S.strg, b7S.alt, b7S.shift));
 
                 }
 
@@ -269,7 +292,7 @@ namespace SurfaceTouchBar
             }
 
         }
-        private void b8_Click(Object sender, MouseEventArgs e)
+        private void B8_Click(Object sender, MouseEventArgs e)
         {
 
 
@@ -279,9 +302,9 @@ namespace SurfaceTouchBar
                 {
                     WindowHelper.BringProcessToFront(currentProcess);
 
-                    Settings.ButtonSetting b8S = settings.Buttons[7];
+                    ButtonSetting b8S = selectedProfile.Buttons[7];
 
-                    SendKeys.Send(generateSendKeysString(b8S.hotkey, b8S.strg, b8S.alt, b8S.shift));
+                    SendKeys.Send(GenerateSendKeysString(b8S.hotkey, b8S.strg, b8S.alt, b8S.shift));
 
                 }
 
@@ -295,31 +318,40 @@ namespace SurfaceTouchBar
 
         }
 
+        private void bEinstellungen_Click(Object sender, EventArgs e)
+        {
+            Einstellungen frmEinstellungen = new Einstellungen();
+            frmEinstellungen.ShowDialog();
+
+            LoadSettings();
+        }
+
         /// <summary>
         /// Ermöglicht das editieren des angegebenen Buttons
         /// </summary>
         /// <param name="buttonIndex">index des Buttons in settings.Buttons</param>
         private void EditButtonSettings(int buttonIndex)
         {
-            Settings.ButtonSetting oldButtonSettings = settings.Buttons[buttonIndex];
+            ButtonSetting oldButtonSettings = selectedProfile.Buttons[buttonIndex];
 
             EditButton EditButton = new EditButton(oldButtonSettings, "Button " + (buttonIndex + 1));
             EditButton.ShowDialog();
 
-            Settings.ButtonSetting newButtonSettings = new Settings.ButtonSetting();
+            ButtonSetting newButtonSettings = new ButtonSetting()
+            {
+                name = EditButton.tbName.Text,
 
-            newButtonSettings.name = EditButton.tbName.Text;
+                hotkey = (Keys)Enum.Parse(typeof(Keys), EditButton.bHotkey.Text),
+                alt = EditButton.checkAlt.Checked,
+                strg = EditButton.checkStrg.Checked,
+                shift = EditButton.checkShift.Checked
+            };
 
-            newButtonSettings.hotkey = (Keys)Enum.Parse(typeof(Keys), EditButton.bHotkey.Text);
-            newButtonSettings.alt = EditButton.checkAlt.Checked;
-            newButtonSettings.strg = EditButton.checkStrg.Checked;
-            newButtonSettings.shift = EditButton.checkShift.Checked;
+            selectedProfile.Buttons[buttonIndex] = newButtonSettings;
 
-            settings.Buttons[buttonIndex] = newButtonSettings;
+            settings.Save();
 
-            settings.save();
-
-            loadSettings();
+            LoadSettings();
         }
 
         /// <summary>
@@ -330,7 +362,7 @@ namespace SurfaceTouchBar
         /// <param name="alt">Soll Alt gedrückt werden.</param>
         /// <param name="shift">Soll Shift gedrückt werden.</param>
         /// <returns>String der in Sendkeys.Send() verwendet werden kann.</returns>
-        private string generateSendKeysString(Keys hotkey, bool strg, bool alt, bool shift)
+        private string GenerateSendKeysString(Keys hotkey, bool strg, bool alt, bool shift)
         {
             string keystring = "";
 
@@ -355,31 +387,33 @@ namespace SurfaceTouchBar
         /// </summary>
         /// <param name="buttonText">Button Text</param>
         /// <returns>SurfaceTouchBar - Button</returns>
-        private Button generateBarButton()
+        private Button GenerateBarButton()
         {
-            Button newBarButton = new Button();
-
-            newBarButton.Width = this.Width;
-            newBarButton.Height = Height / 8;
-            newBarButton.FlatStyle = FlatStyle.Flat;
-            newBarButton.Font = new Font(FontFamily.GenericSansSerif,10.0F);
-
+            Button newBarButton = new Button()
+            {
+                Width = this.Width,
+                Height = Height / 8,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font(FontFamily.GenericSansSerif, 10.0F)
+            };
             return newBarButton;
         }
 
         /// <summary>
         /// initialisisert SurfaceTouchBar-Button-Click-Events
         /// </summary>
-        private void initializeButtonEvent()
+        private void InitializeButtonEvent()
         {
-            b1.MouseDown += new MouseEventHandler(this.b1_Click);
-            b2.MouseDown += new MouseEventHandler(this.b2_Click);
-            b3.MouseDown += new MouseEventHandler(this.b3_Click);
-            b4.MouseDown += new MouseEventHandler(this.b4_Click);
-            b5.MouseDown += new MouseEventHandler(this.b5_Click);
-            b6.MouseDown += new MouseEventHandler(this.b6_Click);
-            b7.MouseDown += new MouseEventHandler(this.b7_Click);
-            b8.MouseDown += new MouseEventHandler(this.b8_Click);
+            b1.MouseDown += new MouseEventHandler(this.B1_Click);
+            b2.MouseDown += new MouseEventHandler(this.B2_Click);
+            b3.MouseDown += new MouseEventHandler(this.B3_Click);
+            b4.MouseDown += new MouseEventHandler(this.B4_Click);
+            b5.MouseDown += new MouseEventHandler(this.B5_Click);
+            b6.MouseDown += new MouseEventHandler(this.B6_Click);
+            b7.MouseDown += new MouseEventHandler(this.B7_Click);
+            b8.MouseDown += new MouseEventHandler(this.B8_Click);
+
+            bEinstellungen.Click += new EventHandler(this.bEinstellungen_Click);
 
         }
 
@@ -387,7 +421,7 @@ namespace SurfaceTouchBar
         /// Gibt die Höhe der Taskbar zurück.
         /// </summary>
         /// <returns></returns>
-        private static int calculateTaskbarHeight()
+        private static int CalculateTaskbarHeight()
         {
             return Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
         }
@@ -395,31 +429,44 @@ namespace SurfaceTouchBar
         /// <summary>
         /// Dispalys the Buttons.
         /// </summary>
-        private void displayButtons()
+        private void DisplayButtons()
         {
-            b1 = generateBarButton();
+
+            //Höhe des Platzes indem die belegbare Buttons angezeigt werden (ohne Einstelungen Buttons).
+            int definedHeight = Height - 70;
+
+            //Einzelne belegbare Buttons
+            b1 = GenerateBarButton();
             Controls.Add(b1);
-            b2 = generateBarButton();
-            b2.Location = new Point(0, Height / 8);
+            b2 = GenerateBarButton();
+            b2.Location = new Point(0, definedHeight / 8);
             Controls.Add(b2);
-            b3 = generateBarButton();
-            b3.Location = new Point(0, (Height / 8) * 2);
+            b3 = GenerateBarButton();
+            b3.Location = new Point(0, (definedHeight / 8) * 2);
             Controls.Add(b3);
-            b4 = generateBarButton();
-            b4.Location = new Point(0, (Height / 8) * 3);
+            b4 = GenerateBarButton();
+            b4.Location = new Point(0, (definedHeight / 8) * 3);
             Controls.Add(b4);
-            b5 = generateBarButton();
-            b5.Location = new Point(0, (Height / 8) * 4);
+            b5 = GenerateBarButton();
+            b5.Location = new Point(0, (definedHeight / 8) * 4);
             Controls.Add(b5);
-            b6 = generateBarButton();
-            b6.Location = new Point(0, (Height / 8) * 5);
+            b6 = GenerateBarButton();
+            b6.Location = new Point(0, (definedHeight / 8) * 5);
             Controls.Add(b6);
-            b7 = generateBarButton();
-            b7.Location = new Point(0, (Height / 8) * 6);
+            b7 = GenerateBarButton();
+            b7.Location = new Point(0, (definedHeight / 8) * 6);
             Controls.Add(b7);
-            b8 = generateBarButton();
-            b8.Location = new Point(0, (Height / 8) * 7);
+            b8 = GenerateBarButton();
+            b8.Location = new Point(0, (definedHeight / 8) * 7);
             Controls.Add(b8);
+
+            //Einstellungen Button
+            bEinstellungen = GenerateBarButton();
+            bEinstellungen.Location = new Point(0, (definedHeight / 8) * 8);
+            bEinstellungen.Height = Height - definedHeight;
+            bEinstellungen.Text = "Einstellungen";
+            bEinstellungen.BackColor = Color.Black;
+            Controls.Add(bEinstellungen);
         }
         
 

@@ -36,7 +36,7 @@
             // 
             this.processTimer.Enabled = true;
             this.processTimer.Interval = 1;
-            this.processTimer.Tick += new System.EventHandler(this.processTimer_Tick);
+            this.processTimer.Tick += new System.EventHandler(this.ProcessTimer_Tick);
             // 
             // Form1
             // 

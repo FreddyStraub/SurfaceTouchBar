@@ -13,7 +13,12 @@ namespace SurfaceTouchBar
     public partial class EditButton : Form
     {
         
-        public EditButton(Settings.ButtonSetting buttonSettings, string settingsstring)
+        /// <summary>
+        /// Erstellt neue EditButton - Form
+        /// </summary>
+        /// <param name="buttonSettings">Einstellungen die in der Form angezeigt werden sollen.</param>
+        /// <param name="settingsstring">String der im Titel der Form angezeigt wird.</param>
+        public EditButton(ButtonSetting buttonSettings, string settingsstring)
         {
             InitializeComponent();
 

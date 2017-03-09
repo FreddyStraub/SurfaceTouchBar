@@ -9,20 +9,22 @@ using System.Windows.Forms;
 namespace SurfaceTouchBar
 {
     [Serializable]
-    public class Settings
+    public partial class Settings
     {
 
-        public List<ButtonSetting> Buttons;
+        //public List<ButtonSetting> Buttons;
+
+        public List<Profile> Profiles;
 
         public Settings()
         {
-            Buttons = new List<ButtonSetting>();
+            Profiles = new List<Profile>();
         }
 
         /// <summary>
         /// Speichert die Einstellungen.
         /// </summary>
-        public void save()
+        public void Save()
         {
 
             System.IO.FileStream FS = new System.IO.FileStream(Application.StartupPath + "\\Settings.wolf", System.IO.FileMode.Create);
@@ -38,7 +40,7 @@ namespace SurfaceTouchBar
         /// Lädt die Einstellungen.
         /// </summary>
         /// <returns>Objekt mit geldenen Einstellungen.</returns>
-        public Settings load()
+        public Settings Load()
         {
 
             Settings newSettings = new Settings();
@@ -59,8 +61,15 @@ namespace SurfaceTouchBar
         /// <summary>
         /// Setzt die Settings auf den Standartwert.
         /// </summary>
-        public void setStandartValues()
+        public void SetStandartValues()
         {
+
+            Profile Profile = new Profile()
+            {
+                Buttons = new List<ButtonSetting>(),
+                Name = "Standart"
+                
+            };
 
             List<ButtonSetting> standartButtons = new List<ButtonSetting>();
 
@@ -194,23 +203,8 @@ namespace SurfaceTouchBar
             #endregion
 
 
-            Buttons = standartButtons;
-
-
-
-        }
-
-        [Serializable]
-        public class ButtonSetting
-        {
-
-            public string name;
-
-            public Keys hotkey;
-
-            public bool strg;
-            public bool alt;
-            public bool shift;
+            Profile.Buttons = standartButtons;
+            Profiles.Add(Profile);
 
         }
 
