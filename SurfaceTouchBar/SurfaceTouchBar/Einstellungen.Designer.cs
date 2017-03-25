@@ -126,8 +126,9 @@
             // 
             this.profilBearbeitenToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.profilBearbeitenToolStripMenuItem.Name = "profilBearbeitenToolStripMenuItem";
-            this.profilBearbeitenToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.profilBearbeitenToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
             this.profilBearbeitenToolStripMenuItem.Text = "Profil bearbeiten...";
+            this.profilBearbeitenToolStripMenuItem.Click += new System.EventHandler(this.profilBearbeitenToolStripMenuItem_Click);
             // 
             // profilLöschenToolStripMenuItem
             // 

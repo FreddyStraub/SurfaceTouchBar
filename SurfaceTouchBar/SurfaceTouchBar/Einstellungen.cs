@@ -100,6 +100,27 @@ namespace SurfaceTouchBar
 
         }
 
+        private void editProfile()
+        {
+
+            frmInputDialog frmInputDialog = new frmInputDialog();
+            frmInputDialog.tbName.Text = listProfile.SelectedItem.ToString();
+            
+            if(frmInputDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                int index = listProfile.SelectedIndex;
+                string newName = frmInputDialog.tbName.Text;
+
+                Profiles[index].Name = newName;
+
+                loadlistProfileItems();
+                selectProfile();
+
+            }
+
+        }
+
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             Close();
@@ -168,6 +189,11 @@ namespace SurfaceTouchBar
         private void profilLöschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleteProifle();
+        }
+
+        private void profilBearbeitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editProfile();
         }
     }
 }
