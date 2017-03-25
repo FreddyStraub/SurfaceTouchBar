@@ -54,9 +54,7 @@ namespace SurfaceTouchBar
 
             if (frmInputDialog.ShowDialog() == DialogResult.OK)
             {
-
-
-
+                
                 Profile newProfile = new Profile()
                 {
                     Name = frmInputDialog.tbName.Text
@@ -72,6 +70,36 @@ namespace SurfaceTouchBar
             }
         }
 
+        /// <summary>
+        /// Löscht das ausgewählte Profile.
+        /// </summary>
+        private void deleteProifle()
+        {
+
+            if (listProfile.Items.Count != 1)
+            {
+
+                if (MessageBox.Show("Willst du " + listProfile.SelectedItem.ToString() + " wirklich löschen?", "SurfaceTouchBar - Löschen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    Profiles.Remove(Profiles[listProfile.SelectedIndex]);
+                    listProfile.Items.Remove(listProfile.SelectedItem);
+
+                    if (Profiles.IndexOf(SelectedProfile) == -1)
+                    {
+                        SelectedProfile = Profiles[0];
+                    }
+
+                    selectProfile();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Es muss mindestens ein Profile vorhanden sein!", "Error!!!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             Close();
@@ -82,11 +110,7 @@ namespace SurfaceTouchBar
 
             loadlistProfileItems();
 
-            //Selection des zuvor ausgewählten Profiels
-            int index = Profiles.IndexOf(SelectedProfile);
-            listProfile.SelectedItem = listProfile.Items[index];
-
-
+            selectProfile();
         }
         /// <summary>
         /// Befüllung der listProfile
@@ -101,7 +125,16 @@ namespace SurfaceTouchBar
                 listProfile.Items.Add(p.Name);
             }
 
-            //Selection des zuvor ausgewählten Profiels
+            selectProfile();
+
+        }
+
+        /// <summary>
+        /// Selection des zuvor ausgewählten Profiels
+        /// </summary>
+        private void selectProfile()
+        {
+
             int index = Profiles.IndexOf(SelectedProfile);
             listProfile.SelectedItem = listProfile.Items[index];
 
@@ -112,13 +145,29 @@ namespace SurfaceTouchBar
 
             //Legt das SelectedProfile anhand der Listenauswahl des Users fest.
             int ProfileIndex = listProfile.SelectedIndex;
-            SelectedProfile = Profiles[ProfileIndex];
+
+            if(ProfileIndex == -1)
+            {
+                SelectedProfile = Profiles[0];
+
+            }
+            else
+            {
+                SelectedProfile = Profiles[ProfileIndex];
+
+            }
+
 
         }
 
         private void neuesProfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
             createProfil();
+        }
+
+        private void profilLöschenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            deleteProifle();
         }
     }
 }

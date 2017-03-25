@@ -105,21 +105,21 @@
             // cmsProfile
             // 
             this.cmsProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.cmsProfile.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsProfile.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmsProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.neuesProfilToolStripMenuItem,
             this.profilBearbeitenToolStripMenuItem,
             this.profilLöschenToolStripMenuItem});
             this.cmsProfile.Name = "cmsProfile";
             this.cmsProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsProfile.Size = new System.Drawing.Size(183, 92);
+            this.cmsProfile.Size = new System.Drawing.Size(255, 128);
             // 
             // neuesProfilToolStripMenuItem
             // 
             this.neuesProfilToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.neuesProfilToolStripMenuItem.Name = "neuesProfilToolStripMenuItem";
-            this.neuesProfilToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.neuesProfilToolStripMenuItem.Text = "Neues Profil";
+            this.neuesProfilToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
+            this.neuesProfilToolStripMenuItem.Text = "Neues Profil...";
             this.neuesProfilToolStripMenuItem.Click += new System.EventHandler(this.neuesProfilToolStripMenuItem_Click);
             // 
             // profilBearbeitenToolStripMenuItem
@@ -135,6 +135,7 @@
             this.profilLöschenToolStripMenuItem.Name = "profilLöschenToolStripMenuItem";
             this.profilLöschenToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.profilLöschenToolStripMenuItem.Text = "Profil löschen";
+            this.profilLöschenToolStripMenuItem.Click += new System.EventHandler(this.profilLöschenToolStripMenuItem_Click);
             // 
             // lbProfile
             // 
