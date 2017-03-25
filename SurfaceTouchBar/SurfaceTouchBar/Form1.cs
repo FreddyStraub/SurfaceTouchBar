@@ -75,6 +75,7 @@ namespace SurfaceTouchBar
             try
             {
                 settings = settings.Load();
+                selectedProfile = settings.SelectedProfile;
 
             }
             catch
@@ -93,7 +94,7 @@ namespace SurfaceTouchBar
 
             }
 
-            selectedProfile = settings.Profiles[0];
+            selectedProfile = settings.SelectedProfile;
 
             b1.Text = selectedProfile.Buttons[0].name;
             b2.Text = selectedProfile.Buttons[1].name;
@@ -320,8 +321,14 @@ namespace SurfaceTouchBar
 
         private void bEinstellungen_Click(Object sender, EventArgs e)
         {
-            Einstellungen frmEinstellungen = new Einstellungen();
+            Einstellungen frmEinstellungen = new Einstellungen(settings.Profiles, selectedProfile);
             frmEinstellungen.ShowDialog();
+
+            List<Profile> newProfiles = frmEinstellungen.Profiles;
+
+            settings.SelectedProfile = frmEinstellungen.SelectedProfile;
+            settings.Profiles = newProfiles;
+            settings.Save();
 
             LoadSettings();
         }
