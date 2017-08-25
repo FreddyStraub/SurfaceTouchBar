@@ -19,6 +19,7 @@ namespace SurfaceTouchBar
         {
             InitializeComponent();
             TopMost = true;
+
         }
 
         Screen[] screens;
@@ -41,8 +42,14 @@ namespace SurfaceTouchBar
 
         Button bEinstellungen = new Button();
 
+        bool screenoreantation;
+
+        int theScreenRectHeight;
+        int theScreenRectWidth;
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            screenoreantation = isLandscape();
 
 
             screens = Screen.AllScreens;
@@ -119,7 +126,52 @@ namespace SurfaceTouchBar
 
             }
 
+            //Setting Screen Params
+           theScreenRectHeight = Screen.PrimaryScreen.Bounds.Height;
+           theScreenRectWidth = Screen.PrimaryScreen.Bounds.Width;
 
+            //Set SurfaceTouchBar to new oreantation.
+            if(screenoreantation != isLandscape())
+            {
+
+                screenoreantation = isLandscape();
+
+                Thread.Sleep(1000);
+
+                Console.WriteLine(screenoreantation.ToString());
+     
+                StartPosition = FormStartPosition.Manual;
+                Height = Screen.PrimaryScreen.Bounds.Height - CalculateTaskbarHeight();
+
+                this.Controls.Clear();
+
+                DisplayButtons();
+                InitializeButtonEvent();
+
+                LoadSettings();
+            }
+
+
+            
+
+        }
+
+        /// <summary>
+        /// Detect if device-screen is landscape or not.
+        /// </summary>
+        /// <returns></returns>
+        private bool isLandscape()
+        {
+            if (theScreenRectHeight > theScreenRectWidth)
+            {
+                // Run the application in portrait, as in:
+              return false;
+            }
+            else
+            {
+                // Run the application in landscape, as in:
+                return true;
+            }
         }
 
         private void B1_Click(Object sender, MouseEventArgs e)

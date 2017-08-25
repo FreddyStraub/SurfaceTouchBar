@@ -50,5 +50,10 @@ namespace SurfaceTouchBar
         {
             DialogResult = DialogResult.OK;
         }
+
+        private void bAbbrechen_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
