@@ -21,6 +21,8 @@ namespace SurfaceTouchBar
             InitializeComponent();
             Profiles = profiles;
             SelectedProfile = selectedProfile;
+
+            Height = 530;
         }
 
         #region Move Form
@@ -194,6 +196,11 @@ namespace SurfaceTouchBar
         private void profilBearbeitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             editProfile();
+        }
+
+        private void bClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

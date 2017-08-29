@@ -39,6 +39,8 @@
             this.profilBearbeitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profilLöschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lbProfile = new System.Windows.Forms.Label();
+            this.bClose = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.HeaderBar.SuspendLayout();
             this.cmsProfile.SuspendLayout();
@@ -52,7 +54,7 @@
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
             this.bunifuImageButton1.ImageActive = null;
             this.bunifuImageButton1.Location = new System.Drawing.Point(740, 23);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(6);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Size = new System.Drawing.Size(70, 67);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -68,7 +70,7 @@
             this.HeaderBar.Controls.Add(this.bunifuImageButton1);
             this.HeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeaderBar.Location = new System.Drawing.Point(0, 0);
-            this.HeaderBar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.HeaderBar.Margin = new System.Windows.Forms.Padding(6);
             this.HeaderBar.Name = "HeaderBar";
             this.HeaderBar.Size = new System.Drawing.Size(834, 113);
             this.HeaderBar.TabIndex = 2;
@@ -116,7 +118,7 @@
             this.profilLöschenToolStripMenuItem});
             this.cmsProfile.Name = "cmsProfile";
             this.cmsProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsProfile.Size = new System.Drawing.Size(447, 234);
+            this.cmsProfile.Size = new System.Drawing.Size(447, 190);
             // 
             // neuesProfilToolStripMenuItem
             // 
@@ -154,18 +156,44 @@
             this.lbProfile.TabIndex = 3;
             this.lbProfile.Text = "Profile:";
             // 
+            // bClose
+            // 
+            this.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bClose.ForeColor = System.Drawing.Color.White;
+            this.bClose.Location = new System.Drawing.Point(448, 882);
+            this.bClose.Name = "bClose";
+            this.bClose.Size = new System.Drawing.Size(362, 102);
+            this.bClose.TabIndex = 4;
+            this.bClose.Text = "Programm beenden";
+            this.bClose.UseVisualStyleBackColor = true;
+            this.bClose.Click += new System.EventHandler(this.bClose_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(24, 919);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(350, 32);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Copyright ©  2017 - Wolf066LP";
+            // 
             // Einstellungen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(834, 912);
+            this.ClientSize = new System.Drawing.Size(834, 1015);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bClose);
             this.Controls.Add(this.lbProfile);
             this.Controls.Add(this.listProfile);
             this.Controls.Add(this.HeaderBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Einstellungen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Einstellungen";
@@ -190,5 +218,7 @@
         private System.Windows.Forms.ToolStripMenuItem neuesProfilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profilBearbeitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profilLöschenToolStripMenuItem;
+        private System.Windows.Forms.Button bClose;
+        private System.Windows.Forms.Label label1;
     }
 }
