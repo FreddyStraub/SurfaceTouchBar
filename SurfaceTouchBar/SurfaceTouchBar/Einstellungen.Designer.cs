@@ -51,9 +51,10 @@
             this.bunifuImageButton1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ErrorImage")));
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
             this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(370, 12);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(740, 23);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(35, 35);
+            this.bunifuImageButton1.Size = new System.Drawing.Size(70, 67);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bunifuImageButton1.TabIndex = 1;
             this.bunifuImageButton1.TabStop = false;
@@ -67,8 +68,9 @@
             this.HeaderBar.Controls.Add(this.bunifuImageButton1);
             this.HeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeaderBar.Location = new System.Drawing.Point(0, 0);
+            this.HeaderBar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.HeaderBar.Name = "HeaderBar";
-            this.HeaderBar.Size = new System.Drawing.Size(417, 59);
+            this.HeaderBar.Size = new System.Drawing.Size(834, 113);
             this.HeaderBar.TabIndex = 2;
             this.HeaderBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseDown);
             this.HeaderBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseMove);
@@ -78,9 +80,10 @@
             this.lbEinstellungen.AutoSize = true;
             this.lbEinstellungen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEinstellungen.ForeColor = System.Drawing.Color.White;
-            this.lbEinstellungen.Location = new System.Drawing.Point(12, 21);
+            this.lbEinstellungen.Location = new System.Drawing.Point(24, 40);
+            this.lbEinstellungen.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbEinstellungen.Name = "lbEinstellungen";
-            this.lbEinstellungen.Size = new System.Drawing.Size(105, 20);
+            this.lbEinstellungen.Size = new System.Drawing.Size(208, 37);
             this.lbEinstellungen.TabIndex = 2;
             this.lbEinstellungen.Text = "Einstellungen";
             this.lbEinstellungen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseDown);
@@ -94,11 +97,11 @@
             this.listProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listProfile.ForeColor = System.Drawing.Color.White;
             this.listProfile.FormattingEnabled = true;
-            this.listProfile.ItemHeight = 20;
-            this.listProfile.Location = new System.Drawing.Point(12, 123);
-            this.listProfile.Margin = new System.Windows.Forms.Padding(7);
+            this.listProfile.ItemHeight = 37;
+            this.listProfile.Location = new System.Drawing.Point(24, 237);
+            this.listProfile.Margin = new System.Windows.Forms.Padding(14, 13, 14, 13);
             this.listProfile.Name = "listProfile";
-            this.listProfile.Size = new System.Drawing.Size(393, 340);
+            this.listProfile.Size = new System.Drawing.Size(786, 629);
             this.listProfile.TabIndex = 3;
             this.listProfile.SelectedIndexChanged += new System.EventHandler(this.listProfile_SelectedIndexChanged);
             // 
@@ -106,19 +109,20 @@
             // 
             this.cmsProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.cmsProfile.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmsProfile.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.cmsProfile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.neuesProfilToolStripMenuItem,
             this.profilBearbeitenToolStripMenuItem,
             this.profilLöschenToolStripMenuItem});
             this.cmsProfile.Name = "cmsProfile";
             this.cmsProfile.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsProfile.Size = new System.Drawing.Size(255, 128);
+            this.cmsProfile.Size = new System.Drawing.Size(447, 234);
             // 
             // neuesProfilToolStripMenuItem
             // 
             this.neuesProfilToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.neuesProfilToolStripMenuItem.Name = "neuesProfilToolStripMenuItem";
-            this.neuesProfilToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
+            this.neuesProfilToolStripMenuItem.Size = new System.Drawing.Size(446, 62);
             this.neuesProfilToolStripMenuItem.Text = "Neues Profil...";
             this.neuesProfilToolStripMenuItem.Click += new System.EventHandler(this.neuesProfilToolStripMenuItem_Click);
             // 
@@ -126,7 +130,7 @@
             // 
             this.profilBearbeitenToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.profilBearbeitenToolStripMenuItem.Name = "profilBearbeitenToolStripMenuItem";
-            this.profilBearbeitenToolStripMenuItem.Size = new System.Drawing.Size(254, 34);
+            this.profilBearbeitenToolStripMenuItem.Size = new System.Drawing.Size(446, 62);
             this.profilBearbeitenToolStripMenuItem.Text = "Profil bearbeiten...";
             this.profilBearbeitenToolStripMenuItem.Click += new System.EventHandler(this.profilBearbeitenToolStripMenuItem_Click);
             // 
@@ -134,7 +138,7 @@
             // 
             this.profilLöschenToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.profilLöschenToolStripMenuItem.Name = "profilLöschenToolStripMenuItem";
-            this.profilLöschenToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.profilLöschenToolStripMenuItem.Size = new System.Drawing.Size(446, 62);
             this.profilLöschenToolStripMenuItem.Text = "Profil löschen";
             this.profilLöschenToolStripMenuItem.Click += new System.EventHandler(this.profilLöschenToolStripMenuItem_Click);
             // 
@@ -143,22 +147,25 @@
             this.lbProfile.AutoSize = true;
             this.lbProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbProfile.ForeColor = System.Drawing.Color.White;
-            this.lbProfile.Location = new System.Drawing.Point(12, 87);
+            this.lbProfile.Location = new System.Drawing.Point(24, 167);
+            this.lbProfile.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbProfile.Name = "lbProfile";
-            this.lbProfile.Size = new System.Drawing.Size(57, 20);
+            this.lbProfile.Size = new System.Drawing.Size(116, 37);
             this.lbProfile.TabIndex = 3;
             this.lbProfile.Text = "Profile:";
             // 
             // Einstellungen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(417, 474);
+            this.ClientSize = new System.Drawing.Size(834, 912);
             this.Controls.Add(this.lbProfile);
             this.Controls.Add(this.listProfile);
             this.Controls.Add(this.HeaderBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Einstellungen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Einstellungen";

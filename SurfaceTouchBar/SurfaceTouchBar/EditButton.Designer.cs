@@ -51,9 +51,10 @@
             this.bunifuImageButton1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.ErrorImage")));
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
             this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(384, 12);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(768, 23);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(35, 35);
+            this.bunifuImageButton1.Size = new System.Drawing.Size(70, 67);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bunifuImageButton1.TabIndex = 1;
             this.bunifuImageButton1.TabStop = false;
@@ -67,8 +68,9 @@
             this.HeaderBar.Controls.Add(this.bunifuImageButton1);
             this.HeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeaderBar.Location = new System.Drawing.Point(0, 0);
+            this.HeaderBar.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.HeaderBar.Name = "HeaderBar";
-            this.HeaderBar.Size = new System.Drawing.Size(431, 59);
+            this.HeaderBar.Size = new System.Drawing.Size(862, 113);
             this.HeaderBar.TabIndex = 1;
             this.HeaderBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseDown);
             this.HeaderBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseMove);
@@ -78,9 +80,10 @@
             this.lbButtonSettings.AutoSize = true;
             this.lbButtonSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbButtonSettings.ForeColor = System.Drawing.Color.White;
-            this.lbButtonSettings.Location = new System.Drawing.Point(12, 22);
+            this.lbButtonSettings.Location = new System.Drawing.Point(24, 42);
+            this.lbButtonSettings.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbButtonSettings.Name = "lbButtonSettings";
-            this.lbButtonSettings.Size = new System.Drawing.Size(150, 20);
+            this.lbButtonSettings.Size = new System.Drawing.Size(297, 37);
             this.lbButtonSettings.TabIndex = 2;
             this.lbButtonSettings.Text = "Buttoneinstellugen: ";
             this.lbButtonSettings.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseDown);
@@ -98,10 +101,10 @@
             this.tbName.LineIdleColor = System.Drawing.Color.Black;
             this.tbName.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbName.LineThickness = 3;
-            this.tbName.Location = new System.Drawing.Point(13, 85);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4);
+            this.tbName.Location = new System.Drawing.Point(26, 163);
+            this.tbName.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(406, 44);
+            this.tbName.Size = new System.Drawing.Size(812, 85);
             this.tbName.TabIndex = 4;
             this.tbName.Text = "Name";
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -110,9 +113,10 @@
             // 
             this.bHotkey.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bHotkey.ForeColor = System.Drawing.Color.White;
-            this.bHotkey.Location = new System.Drawing.Point(155, 217);
+            this.bHotkey.Location = new System.Drawing.Point(310, 417);
+            this.bHotkey.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.bHotkey.Name = "bHotkey";
-            this.bHotkey.Size = new System.Drawing.Size(123, 39);
+            this.bHotkey.Size = new System.Drawing.Size(246, 75);
             this.bHotkey.TabIndex = 5;
             this.bHotkey.Text = "Hotkey";
             this.bHotkey.UseVisualStyleBackColor = true;
@@ -125,7 +129,8 @@
             this.checkStrg.Checked = true;
             this.checkStrg.CheckedOnColor = System.Drawing.Color.White;
             this.checkStrg.ForeColor = System.Drawing.Color.Black;
-            this.checkStrg.Location = new System.Drawing.Point(67, 163);
+            this.checkStrg.Location = new System.Drawing.Point(134, 313);
+            this.checkStrg.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.checkStrg.Name = "checkStrg";
             this.checkStrg.Size = new System.Drawing.Size(20, 20);
             this.checkStrg.TabIndex = 6;
@@ -135,9 +140,10 @@
             this.lbStrg.AutoSize = true;
             this.lbStrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStrg.ForeColor = System.Drawing.Color.White;
-            this.lbStrg.Location = new System.Drawing.Point(93, 163);
+            this.lbStrg.Location = new System.Drawing.Point(186, 313);
+            this.lbStrg.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbStrg.Name = "lbStrg";
-            this.lbStrg.Size = new System.Drawing.Size(35, 18);
+            this.lbStrg.Size = new System.Drawing.Size(70, 36);
             this.lbStrg.TabIndex = 7;
             this.lbStrg.Text = "Strg";
             // 
@@ -146,9 +152,10 @@
             this.lbAlt.AutoSize = true;
             this.lbAlt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbAlt.ForeColor = System.Drawing.Color.White;
-            this.lbAlt.Location = new System.Drawing.Point(212, 163);
+            this.lbAlt.Location = new System.Drawing.Point(424, 313);
+            this.lbAlt.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbAlt.Name = "lbAlt";
-            this.lbAlt.Size = new System.Drawing.Size(24, 18);
+            this.lbAlt.Size = new System.Drawing.Size(51, 36);
             this.lbAlt.TabIndex = 9;
             this.lbAlt.Text = "Alt";
             // 
@@ -159,7 +166,8 @@
             this.checkAlt.Checked = true;
             this.checkAlt.CheckedOnColor = System.Drawing.Color.White;
             this.checkAlt.ForeColor = System.Drawing.Color.Black;
-            this.checkAlt.Location = new System.Drawing.Point(186, 163);
+            this.checkAlt.Location = new System.Drawing.Point(372, 313);
+            this.checkAlt.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.checkAlt.Name = "checkAlt";
             this.checkAlt.Size = new System.Drawing.Size(20, 20);
             this.checkAlt.TabIndex = 8;
@@ -169,9 +177,10 @@
             this.lbShift.AutoSize = true;
             this.lbShift.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbShift.ForeColor = System.Drawing.Color.White;
-            this.lbShift.Location = new System.Drawing.Point(310, 163);
+            this.lbShift.Location = new System.Drawing.Point(620, 313);
+            this.lbShift.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbShift.Name = "lbShift";
-            this.lbShift.Size = new System.Drawing.Size(37, 18);
+            this.lbShift.Size = new System.Drawing.Size(75, 36);
             this.lbShift.TabIndex = 11;
             this.lbShift.Text = "Shift";
             // 
@@ -182,17 +191,18 @@
             this.checkShift.Checked = true;
             this.checkShift.CheckedOnColor = System.Drawing.Color.White;
             this.checkShift.ForeColor = System.Drawing.Color.Black;
-            this.checkShift.Location = new System.Drawing.Point(284, 163);
+            this.checkShift.Location = new System.Drawing.Point(568, 313);
+            this.checkShift.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
             this.checkShift.Name = "checkShift";
             this.checkShift.Size = new System.Drawing.Size(20, 20);
             this.checkShift.TabIndex = 10;
             // 
             // EditButton
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(431, 295);
+            this.ClientSize = new System.Drawing.Size(862, 567);
             this.Controls.Add(this.lbShift);
             this.Controls.Add(this.checkShift);
             this.Controls.Add(this.lbAlt);
@@ -204,7 +214,9 @@
             this.Controls.Add(this.HeaderBar);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "EditButton";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditButton";
