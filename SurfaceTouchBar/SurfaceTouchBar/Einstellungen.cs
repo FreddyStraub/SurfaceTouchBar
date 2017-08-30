@@ -230,6 +230,9 @@ namespace SurfaceTouchBar
         private void bProfile_Click(object sender, EventArgs e)
         {
             panel1.Location = new Point(915, 222);
+            bunifuTransition1.Show(panelProfiles);
+            panelProfiles.Visible = true;
+      
 
             bProfile.ForeColor = Color.FromArgb(255, 25, 25, 25);
             bProfile.BackColor = Color.White;
@@ -242,7 +245,16 @@ namespace SurfaceTouchBar
 
         private void bInfos_Click(object sender, EventArgs e)
         {
+
+            panel1.Visible = false;
+
             panel1.Location = panelProfiles.Location;
+
+
+            bunifuTransition1.Show(panel1);
+            panel1.Visible = true;
+
+            panelProfiles.Visible = false;
 
             bInfos.ForeColor = Color.FromArgb(255, 25, 25, 25);
             bInfos.BackColor = Color.White;
