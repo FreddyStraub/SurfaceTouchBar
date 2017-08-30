@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,12 @@ namespace SurfaceTouchBar
             Profiles = profiles;
             SelectedProfile = selectedProfile;
 
-            Height = 530;
+            Height = 640;
+            Width = 420;
+
+            bProfile.ForeColor = Color.FromArgb(255, 25, 25, 25);
+            bProfile.BackColor = Color.White;
+
         }
 
         #region Move Form
@@ -56,18 +62,18 @@ namespace SurfaceTouchBar
 
             if (frmInputDialog.ShowDialog() == DialogResult.OK)
             {
-                
+
                 Profile newProfile = new Profile()
                 {
                     Name = frmInputDialog.tbName.Text
-                
-            };
 
-            newProfile.setStandartValues();
+                };
 
-            Profiles.Add(newProfile);
+                newProfile.setStandartValues();
 
-            loadlistProfileItems();
+                Profiles.Add(newProfile);
+
+                loadlistProfileItems();
 
             }
         }
@@ -102,13 +108,16 @@ namespace SurfaceTouchBar
 
         }
 
+        /// <summary>
+        /// Öffnet einen Dialog um das aktuelle Profile zu bearbeiten.
+        /// </summary>
         private void editProfile()
         {
 
             frmInputDialog frmInputDialog = new frmInputDialog();
             frmInputDialog.tbName.Text = listProfile.SelectedItem.ToString();
-            
-            if(frmInputDialog.ShowDialog() == DialogResult.OK)
+
+            if (frmInputDialog.ShowDialog() == DialogResult.OK)
             {
 
                 int index = listProfile.SelectedIndex;
@@ -127,7 +136,7 @@ namespace SurfaceTouchBar
         {
             Close();
         }
-                
+
         private void Einstellungen_Load(object sender, EventArgs e)
         {
 
@@ -169,7 +178,7 @@ namespace SurfaceTouchBar
             //Legt das SelectedProfile anhand der Listenauswahl des Users fest.
             int ProfileIndex = listProfile.SelectedIndex;
 
-            if(ProfileIndex == -1)
+            if (ProfileIndex == -1)
             {
                 SelectedProfile = Profiles[0];
 
@@ -199,6 +208,68 @@ namespace SurfaceTouchBar
         }
 
         private void bClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void bNeu_Click(object sender, EventArgs e)
+        {
+            createProfil();
+        }
+
+        private void bEdit_Click(object sender, EventArgs e)
+        {
+            editProfile();
+        }
+
+        private void bLöschen_Click(object sender, EventArgs e)
+        {
+            deleteProifle();
+        }
+
+        private void bProfile_Click(object sender, EventArgs e)
+        {
+            panel1.Location = new Point(915, 222);
+
+            bProfile.ForeColor = Color.FromArgb(255, 25, 25, 25);
+            bProfile.BackColor = Color.White;
+
+            bInfos.ForeColor = Color.White;
+            bInfos.BackColor = Color.FromArgb(255, 25, 25, 25);
+
+
+        }
+
+        private void bInfos_Click(object sender, EventArgs e)
+        {
+            panel1.Location = panelProfiles.Location;
+
+            bInfos.ForeColor = Color.FromArgb(255, 25, 25, 25);
+            bInfos.BackColor = Color.White;
+
+            bProfile.ForeColor = Color.White;
+            bProfile.BackColor = Color.FromArgb(255, 25, 25, 25);
+
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://wolf066lp.de/");
+                    
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://wolf066lp.de/tools/surfacetouchbar/");
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://youtube.streamlabs.com/wolf066lp");
+        }
+
+         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
