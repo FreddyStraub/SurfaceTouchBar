@@ -229,11 +229,13 @@ namespace SurfaceTouchBar
 
         private void bProfile_Click(object sender, EventArgs e)
         {
+
+            //Infopanel verschieben
             panel1.Location = new Point(915, 222);
             bunifuTransition1.Show(panelProfiles);
             panelProfiles.Visible = true;
       
-
+            //Tabbuttons color ändern.
             bProfile.ForeColor = Color.FromArgb(255, 25, 25, 25);
             bProfile.BackColor = Color.White;
 
@@ -246,6 +248,7 @@ namespace SurfaceTouchBar
         private void bInfos_Click(object sender, EventArgs e)
         {
 
+            //Infopannel verschieben
             panel1.Visible = false;
 
             panel1.Location = panelProfiles.Location;
@@ -256,6 +259,7 @@ namespace SurfaceTouchBar
 
             panelProfiles.Visible = false;
 
+            //Tabbuttons color ändern.
             bInfos.ForeColor = Color.FromArgb(255, 25, 25, 25);
             bInfos.BackColor = Color.White;
 
