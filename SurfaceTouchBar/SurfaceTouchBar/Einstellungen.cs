@@ -29,6 +29,9 @@ namespace SurfaceTouchBar
             bProfile.ForeColor = Color.FromArgb(255, 25, 25, 25);
             bProfile.BackColor = Color.White;
 
+            label8.Text = "V"+Application.ProductVersion.ToString();
+           
+
         }
 
         #region Move Form
