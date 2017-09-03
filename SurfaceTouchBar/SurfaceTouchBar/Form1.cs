@@ -57,6 +57,8 @@ namespace SurfaceTouchBar
             StartPosition = FormStartPosition.Manual;
             Height = Screen.PrimaryScreen.Bounds.Height  - CalculateTaskbarHeight();
 
+
+
             DisplayButtons();
             InitializeButtonEvent();
 
@@ -71,7 +73,12 @@ namespace SurfaceTouchBar
         private void LoadSettings()
         {
 
-            if(!System.IO.File.Exists(Application.StartupPath + "\\Settings.wolf"))
+            string settingspath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)  + "\\SurfaceTouchBar\\";
+
+            if (!System.IO.Directory.Exists(settingspath))
+                System.IO.Directory.CreateDirectory(settingspath);
+
+            if (!System.IO.File.Exists(settingspath + "Settings.wolf"))
             {
                 Settings newStandartSettings = new Settings();
                 newStandartSettings.SetStandartValues();
@@ -88,9 +95,9 @@ namespace SurfaceTouchBar
             catch
             {
 
-                if(System.IO.File.Exists(Application.StartupPath + "\\Settings.wolf"))
+                if(System.IO.File.Exists(settingspath + "Settings.wolf"))
                 {
-                    System.IO.File.Delete(Application.StartupPath + "\\Settings.wolf");
+                    System.IO.File.Delete(settingspath + "Settings.wolf");
                 }
 
                 Settings newStandartSettings = new Settings();

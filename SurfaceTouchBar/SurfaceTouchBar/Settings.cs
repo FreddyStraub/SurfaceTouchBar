@@ -18,6 +18,8 @@ namespace SurfaceTouchBar
 
         public Profile SelectedProfile { get; set; }
 
+       private string settingspath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\SurfaceTouchBar\\";
+
         public Settings()
         {
             Profiles = new List<Profile>();
@@ -29,7 +31,7 @@ namespace SurfaceTouchBar
         public void Save()
         {
 
-            System.IO.FileStream FS = new System.IO.FileStream(Application.StartupPath + "\\Settings.wolf", System.IO.FileMode.Create);
+            System.IO.FileStream FS = new System.IO.FileStream(settingspath + "Settings.wolf", System.IO.FileMode.Create);
             BinaryFormatter BF = new BinaryFormatter();
 
             BF.Serialize(FS, this);
@@ -48,7 +50,7 @@ namespace SurfaceTouchBar
             Settings newSettings = new Settings();
 
 
-            System.IO.FileStream FS = new System.IO.FileStream(Application.StartupPath + "\\Settings.wolf", System.IO.FileMode.Open);
+            System.IO.FileStream FS = new System.IO.FileStream(settingspath + "Settings.wolf", System.IO.FileMode.Open);
             BinaryFormatter BF = new BinaryFormatter();
 
             newSettings = (Settings)BF.Deserialize(FS);
